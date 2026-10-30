@@ -51,10 +51,12 @@ logger:
 
 wifi:
   power_save_mode: none
-  ap:
-    password: "hunter2hunter2"
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  # ap:
+  #   password: "hunter2hunter2"
 
-captive_portal:
+# captive_portal:
 
 api:
   reboot_timeout: 0s
@@ -499,8 +501,8 @@ time:
     id: sntp_time
     timezone: America/Los_Angeles
 
-web_server:
-  version: 3
+# web_server:
+#   version: 3
 
 transit_tracker:
   id: tracker
