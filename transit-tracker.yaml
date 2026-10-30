@@ -500,5 +500,28 @@ web_server:
 
 transit_tracker:
   id: tracker
+  base_url: "wss://tt.horner.tj/"
+  time_display: "arrival"
+  show_units: "short"
+  list_mode: "nextPerRoute"
+  scroll_headsigns: false
+  stops:
+    - stop_id: "st:1_23420"
+      time_offset: "-3min"
+      routes:
+        - "st:1_100259"
+        - "st:1_100271"
+    - stop_id: "st:40_990004"
+      time_offset: "-7min"
+      routes:
+        - "st:40_100479"
+        - "st:40_2LINE"
+    - stop_id: "st:40_990003"
+      time_offset: "-7min"
+      routes:
+        - "st:40_2LINE"
+        - "st:40_100479"
+  styles: []
+  abbreviations: []
 
 serial_rpc:
