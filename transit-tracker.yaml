@@ -512,22 +512,47 @@ transit_tracker:
   list_mode: "nextPerRoute"
   scroll_headsigns: false
   stops:
-    - stop_id: "st:1_23420"
-      time_offset: "-3min"
+    - stop_id: "st:1_23420" # Roosevelt Way NE / NE 69th St
+      time_offset: "-4min"
       routes:
-        - "st:1_100259"
-        - "st:1_100271"
-    - stop_id: "st:40_990004"
+        - "st:1_100259" # 67 SB
+        - "st:1_100271" # 77 SB
+    - stop_id: "st:40_990004" # Roosevelt Station NB
       time_offset: "-7min"
       routes:
         - "st:40_100479"
         - "st:40_2LINE"
-    - stop_id: "st:40_990003"
+    - stop_id: "st:40_990003" # Roosevelt Station SB
       time_offset: "-7min"
       routes:
-        - "st:40_2LINE"
         - "st:40_100479"
-  styles: []
-  abbreviations: []
+        - "st:40_2LINE"
+    - stop_id: "st:1_16520" # NE Ravenna Blvd / Woodlawn Ave NE
+      time_offset: "-7min"
+      routes:
+        - "st:1_100252" # 62 SB
+    - stop_id: "st:1_23580" # 12 Ave NE / NE 70th St
+      time_offset: "-5min"
+      routes:
+        - "st:1_100259" # 67 NB
+        - "st:1_100271" # 77 NB
+  styles:
+    - route_id: "st:40_100479"
+      name: "(1)"
+      color: "c_28813F"
+    - route_id: "st:40_2LINE"
+      name: "(2)"
+      color: "c_007CAD"
+  abbreviations:
+    - from: "Transit Center"
+      to: "TC"
+    - from: "Downtown"
+      to: "DT"
+
+color:
+  - id: "c_28813F"
+    hex: "28813F"
+  - id: "c_007CAD"
+    hex: "007CAD"
 
 serial_rpc:
