@@ -1,3 +1,6 @@
+# Upstream changes should be merged in from https://github.com/EastsideUrbanism/transit-tracker/commits/main/firmware/transit-tracker.yaml
+# Last rev: 145bbc82ec6cebcc168908bcf3a7d7e2aafcdaa8
+
 substitutions:
   name: "transit-tracker"
   friendly_name: "Transit Tracker"

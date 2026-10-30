@@ -1,3 +1,11 @@
+# williewillus notes
+
+Forked from https://github.com/tjhorner/esphome-transit-tracker . Will be regularly rebased for upstream changes.
+
+ESPHome yaml file also imported from
+https://github.com/EastsideUrbanism/transit-tracker/commits/main/firmware/transit-tracker.yaml
+. Changes will be merged in manually.
+
 # ESPHome Transit Tracker Component
 
 This is an external component for [ESPHome](https://esphome.io/) that fetches and renders a live arrivals board for any transit agency supported by the [Transit Tracker API](https://github.com/tjhorner/transit-tracker-api).
