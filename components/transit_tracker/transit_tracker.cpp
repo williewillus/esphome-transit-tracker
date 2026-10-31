@@ -218,7 +218,16 @@ void TransitTracker::send_subscribe_() {
       data["feedCode"] = this->feed_code_;
     }
     data["routeStopPairs"] = this->schedule_string_;
-    data["limit"] = this->limit_;
+	// We will be paginating over all stop x route, so send that count instead of limit_
+	// The count can be obtained by just counting all the semicolons in the string. Hacky
+	// but it works :wacko:
+	int count = 0;
+	for (char c : this->schedule_string_) {
+	  if (c == ';') {
+		count++;
+	  }
+	}
+    data["limit"] = count + 1;
     data["sortByDeparture"] = this->display_departure_times_;
     data["listMode"] = this->list_mode_;
   });
@@ -562,9 +571,13 @@ void HOT TransitTracker::draw_schedule() {
     y_offset += nominal_font_height;
   }
 
+  int drawn = 0;
   for (const Trip &trip : this->schedule_state_.trips) {
     this->draw_trip(trip, y_offset, nominal_font_height, uptime, rtc_now, false, nullptr, scroll_cycle_duration);
     y_offset += nominal_font_height;
+	if (++drawn == this->limit_) {
+	  break;
+	}
   }
 }
 
