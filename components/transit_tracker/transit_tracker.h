@@ -47,6 +47,7 @@ class TransitTracker : public Component {
     void set_feed_code(const std::string &feed_code) { feed_code_ = feed_code; }
     void set_display_departure_times(bool display_departure_times) { display_departure_times_ = display_departure_times; }
     void set_schedule_string(const std::string &schedule_string) { schedule_string_ = schedule_string; }
+    void set_stops(std::vector<std::string>&& stops) { stops_ = std::move(stops); }
     void set_list_mode(const std::string &list_mode) { list_mode_ = list_mode; }
     void set_limit(int limit) { limit_ = limit; }
     void set_scroll_headsigns(bool scroll_headsigns) { scroll_headsigns_ = scroll_headsigns; }
@@ -100,6 +101,8 @@ class TransitTracker : public Component {
     std::vector<std::pair<std::string, std::string>> extra_headers_;
     std::string feed_code_;
     std::string schedule_string_;
+    // denormalized from schedule string to support pagination stuff
+    std::vector<std::string> stops_;
     std::string list_mode_;
     bool display_departure_times_ = true;
     int limit_;

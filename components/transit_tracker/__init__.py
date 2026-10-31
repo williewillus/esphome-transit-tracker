@@ -162,6 +162,7 @@ async def to_code(config):
 
     cg.add(var.set_feed_code(config[CONF_FEED_CODE]))
     cg.add(var.set_schedule_string(_generate_schedule_string(config[CONF_STOPS])))
+    cg.add(var.set_stops([s['stop_id'] for s in config[CONF_STOPS]]));
 
     display_departure_times = config[CONF_TIME_DISPLAY] == "departure"
     cg.add(var.set_display_departure_times(display_departure_times))
