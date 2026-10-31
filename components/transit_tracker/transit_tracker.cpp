@@ -295,6 +295,7 @@ void TransitTracker::handle_message_(const std::string &payload) {
       }
 
       new_trips.push_back({
+        .stop_id = trip["stopId"].as<std::string>(),
         .route_id = route_id,
         .route_name = route_name,
         .route_color = route_color,
