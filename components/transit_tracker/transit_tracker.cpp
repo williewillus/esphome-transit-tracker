@@ -572,13 +572,19 @@ void HOT TransitTracker::draw_schedule() {
     y_offset += nominal_font_height;
   }
 
+  const auto& stop = this->stops_[(uptime / 4000) % this->stops_.size()];
   int drawn = 0;
   for (const Trip &trip : this->schedule_state_.trips) {
-    this->draw_trip(trip, y_offset, nominal_font_height, uptime, rtc_now, false, nullptr, scroll_cycle_duration);
-    y_offset += nominal_font_height;
-	if (++drawn == this->limit_) {
-	  break;
-	}
+    if (trip.stop_id == stop) {
+      this->draw_trip(trip, y_offset, nominal_font_height, uptime, rtc_now, false, nullptr, scroll_cycle_duration);
+      y_offset += nominal_font_height;
+      if (++drawn == this->limit_) {
+        break;
+      }
+    }
+  }
+  if (drawn == 0) {
+    this->draw_text_centered_("No upcoming trips here", Color(0xa7a7a7));
   }
 }
 

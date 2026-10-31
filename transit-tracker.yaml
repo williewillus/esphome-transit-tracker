@@ -509,7 +509,10 @@ transit_tracker:
   base_url: "wss://tt.horner.tj/"
   time_display: "arrival"
   show_units: "short"
-  list_mode: "nextPerRoute"
+  # This instructs the API server to send everything.
+  # If we use nextPerRoute, then a e.g. northbound trip for one route will clobber
+  # the southbound trip of that same route.
+  list_mode: "sequential"
   scroll_headsigns: false
   stops:
     - stop_id: "st:1_23420" # Roosevelt Way NE / NE 69th St
